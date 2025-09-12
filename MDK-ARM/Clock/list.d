@@ -1,0 +1,12 @@
+clock\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/list.c
+clock\list.o: E:\STM32\ARM\ARMCC\Bin\..\include\stdlib.h
+clock\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+clock\list.o: E:\STM32\ARM\ARMCC\Bin\..\include\stddef.h
+clock\list.o: E:\STM32\ARM\ARMCC\Bin\..\include\stdint.h
+clock\list.o: ../Core/Inc/FreeRTOSConfig.h
+clock\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+clock\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+clock\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+clock\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+clock\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+clock\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
