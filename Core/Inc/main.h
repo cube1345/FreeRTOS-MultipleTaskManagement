@@ -64,6 +64,13 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN Private defines */
 
+typedef enum {
+    KEY_EVENT_DOWN = 1,    // PA8������
+    KEY_EVENT_ENTER = 2,   // PB12��ȷ��
+    KEY_EVENT_EXIT = 3     // PB13���˳�
+} KeyEventType;
+
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

@@ -49,8 +49,6 @@
 #include "semphr.h"                     // ARM.FreeRTOS::RTOS:Core
 
 
-#include "key.h"
+#include "Key.h"
 #include "stm32f1xx_it.h"
-
-QueueHandle_t KeyQueue;
 

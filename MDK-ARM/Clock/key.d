@@ -24,6 +24,8 @@ clock\key.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
 clock\key.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 clock\key.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 clock\key.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+clock\key.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc.h
+clock\key.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc_ex.h
 clock\key.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 clock\key.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 clock\key.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
@@ -41,5 +43,5 @@ clock\key.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 clock\key.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
 clock\key.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 clock\key.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
-clock\key.o: ..\Driver\key.h
+clock\key.o: ..\Driver\Key.h
 clock\key.o: ../Core/Inc/stm32f1xx_it.h

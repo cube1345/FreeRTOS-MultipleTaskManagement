@@ -24,6 +24,8 @@ clock\menutask.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
 clock\menutask.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 clock\menutask.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 clock\menutask.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+clock\menutask.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc.h
+clock\menutask.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc_ex.h
 clock\menutask.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 clock\menutask.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 clock\menutask.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
@@ -39,6 +41,8 @@ clock\menutask.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 clock\menutask.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 clock\menutask.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 clock\menutask.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
+clock\menutask.o: ../Core/Inc/main.h
 clock\menutask.o: ..\Task\MenuTask.h
+clock\menutask.o: ..\Task\Assests.h
 clock\menutask.o: ../OLED/OLED.h
 clock\menutask.o: ../OLED/OLED_Data.h

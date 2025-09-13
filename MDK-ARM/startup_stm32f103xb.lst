@@ -477,10 +477,11 @@ e/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/I
 nc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares
 /Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTO
 S/Source/portable/RVDS/ARM_CM3 -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -
-I../Drivers/CMSIS/Include -I..\Task -I.\RTE\_Clock -IE:\STM32\ARM\CMSIS\6.1.0\C
-MSIS\Core\Include -IE:\STM32\Keil\STM32F1xx_DFP\2.3.0\Device\Include --predefin
-e="__UVISION_VERSION SETA 542" --predefine="STM32F10X_MD SETA 1" --predefine="_
-RTE_ SETA 1" --list=startup_stm32f103xb.lst startup_stm32f103xb.s
+I../Drivers/CMSIS/Include -I..\Task -I..\OLED -I..\Driver -I.\RTE\_Clock -IE:\S
+TM32\ARM\CMSIS\6.1.0\CMSIS\Core\Include -IE:\STM32\Keil\STM32F1xx_DFP\2.3.0\Dev
+ice\Include --predefine="__UVISION_VERSION SETA 542" --predefine="STM32F10X_MD 
+SETA 1" --predefine="_RTE_ SETA 1" --list=startup_stm32f103xb.lst startup_stm32
+f103xb.s
 
 
 

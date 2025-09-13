@@ -3,6 +3,7 @@
 "clock\main.o"
 "clock\gpio.o"
 "clock\freertos.o"
+"clock\rtc.o"
 "clock\stm32f1xx_it.o"
 "clock\stm32f1xx_hal_msp.o"
 "clock\stm32f1xx_hal_timebase_tim.o"
@@ -19,6 +20,8 @@
 "clock\stm32f1xx_hal_flash.o"
 "clock\stm32f1xx_hal_flash_ex.o"
 "clock\stm32f1xx_hal_exti.o"
+"clock\stm32f1xx_hal_rtc.o"
+"clock\stm32f1xx_hal_rtc_ex.o"
 "clock\system_stm32f1xx.o"
 "clock\croutine.o"
 "clock\event_groups.o"
@@ -33,7 +36,9 @@
 "clock\oled.o"
 "clock\oled_data.o"
 "clock\menutask.o"
+"clock\timetask.o"
 "clock\key.o"
+"clock\rtc_1.o"
 --strict --scatter "Clock\Clock.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

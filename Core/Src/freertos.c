@@ -46,7 +46,8 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
 
-extern void MenuTask(void);
+extern void MenuTask(void *pvParameters);
+extern void TimeTask(void *pvParameters);
 
 TaskHandle_t xMenuTaskHandle;
 TaskHandle_t xClockTaskHandle;
@@ -54,13 +55,10 @@ TaskHandle_t xAlarmTaskHandle;
 TaskHandle_t xGameTaskHandle; 
 TaskHandle_t xTempTaskHandle; 
 TaskHandle_t xGyroTaskHandle; 
-
+TaskHandle_t xSettingTaskHandle; 
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
-
-
-
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
   .stack_size = 128 * 4,
@@ -108,7 +106,9 @@ void MX_FREERTOS_Init(void) {
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
-	xTaskCreate(MenuTask,"MenuTask",256,NULL,osPriorityNormal,&xMenuTaskHandle);
+	xTaskCreate(MenuTask,"MenuTask",128,NULL,osPriorityNormal,&xMenuTaskHandle);
+	xTaskCreate(TimeTask,"TimeTask",128,NULL,osPriorityNormal,&xClockTaskHandle);
+	vTaskSuspend(xClockTaskHandle); 
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
