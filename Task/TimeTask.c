@@ -61,6 +61,15 @@ extern volatile uint8_t g_isInMenuTask;
 extern TaskHandle_t xMenuTaskHandle;
 extern uint8_t selectedIndex;            
 
+extern TaskHandle_t xMenuTaskHandle;
+extern TaskHandle_t xClockTaskHandle;
+extern TaskHandle_t xAlarmTaskHandle;
+extern TaskHandle_t xGameTaskHandle;
+extern TaskHandle_t xTempTaskHandle;
+extern TaskHandle_t xGyroTaskHandle;
+extern TaskHandle_t xSettingTaskHandle;
+
+
 static void ExitToMenuTask(void) {
     menuInterruptEnabled = 1;    // 菜单下移中断使能
     enterInterruptEnabled = 1;   // 确认中断使能

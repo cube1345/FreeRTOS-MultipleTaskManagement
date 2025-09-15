@@ -782,6 +782,16 @@
               <FileType>5</FileType>
               <FilePath>..\Task\Assests.h</FilePath>
             </File>
+            <File>
+              <FileName>ClockTask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Task\ClockTask.c</FilePath>
+            </File>
+            <File>
+              <FileName>ClockTask.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Task\ClockTask.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

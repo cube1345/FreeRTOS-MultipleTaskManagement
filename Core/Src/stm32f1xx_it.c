@@ -235,50 +235,40 @@ void TIM4_IRQHandler(void)
 void EXTI15_10_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
-  static uint32_t LastPressTime = 0;  // 上次按键时间（用于消抖）
-  uint32_t CurrentTime = HAL_GetTick();  // 当前时间
-  BaseType_t xHigherPriorityTaskWoken = pdFALSE;  // 任务唤醒标志
-  KeyEventType Key_Event;  // 按键事件类型（使用枚举定义）
-
-  // 处理PB12（ENTER键）按下事件
+  static uint32_t LastPressTime = 0;  // 锟较次帮拷锟斤拷时锟戒（锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
+  uint32_t CurrentTime = HAL_GetTick();  // 锟斤拷前时锟斤拷
+  BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+  KeyEventType Key_Event;
   if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET) {
-    // 检查：ENTER中断使能 且 按键间隔大于50ms（消抖）
     if (enterInterruptEnabled && (CurrentTime - LastPressTime) >= 50) {
-      Key_Event = KEY_EVENT_ENTER;  // 定义为ENTER事件
-      // 若队列有效，则发送事件到按键队列
+      Key_Event = KEY_EVENT_ENTER;
       if (KeyQueue != NULL) {
         xQueueSendFromISR(KeyQueue, &Key_Event, &xHigherPriorityTaskWoken);
       }
-      LastPressTime = CurrentTime;  // 更新上次按键时间
+      LastPressTime = CurrentTime;  // 锟斤拷锟斤拷锟较次帮拷锟斤拷时锟斤拷
     }
   }
-  // 处理PB13（EXIT键）按下事件
   else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13) == GPIO_PIN_RESET) {
-    // 检查：EXIT中断使能 且 按键间隔大于50ms（消抖）
     if (exitInterruptEnabled && (CurrentTime - LastPressTime) >= 50) {
-      Key_Event = KEY_EVENT_EXIT;  // 定义为EXIT事件
-      // 若队列有效，则发送事件到按键队列
+      Key_Event = KEY_EVENT_EXIT;
       if (KeyQueue != NULL) {
         xQueueSendFromISR(KeyQueue, &Key_Event, &xHigherPriorityTaskWoken);
       }
-      LastPressTime = CurrentTime;  // 更新上次按键时间
+      LastPressTime = CurrentTime;
     }
   }
 
 EXIT_IRQ_HANDLER:
   /* USER CODE END EXTI15_10_IRQn 0 */
-  // 清除EXTI中断标志（必须调用，否则会重复触发中断）
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_12);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_13);
   /* USER CODE BEGIN EXTI15_10_IRQn 1 */
 
-  // 若有高优先级任务被唤醒，触发任务切换
   if (xHigherPriorityTaskWoken == pdTRUE) {
     portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
   }
   /* USER CODE END EXTI15_10_IRQn 1 */
 }
-
 
 /* USER CODE BEGIN 1 */
 

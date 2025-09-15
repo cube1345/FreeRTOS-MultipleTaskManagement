@@ -37,6 +37,7 @@
 "clock\oled_data.o"
 "clock\menutask.o"
 "clock\timetask.o"
+"clock\clocktask.o"
 "clock\key.o"
 "clock\rtc_1.o"
 --strict --scatter "Clock\Clock.sct"
