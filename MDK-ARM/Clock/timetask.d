@@ -47,3 +47,4 @@ clock\timetask.o: ../Core/Inc/rtc.h
 clock\timetask.o: ../Core/Inc/main.h
 clock\timetask.o: ..\Task\Assests.h
 clock\timetask.o: ..\Task\MenuTask.h
+clock\timetask.o: ..\Task\TimeTask.h

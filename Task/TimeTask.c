@@ -52,6 +52,7 @@
 #include "rtc.h"
 #include "Assests.h"
 #include "MenuTask.h" 
+#include "TimeTask.h"
 
 extern QueueHandle_t KeyQueue;
 extern volatile uint8_t menuInterruptEnabled;
@@ -70,7 +71,7 @@ extern TaskHandle_t xGyroTaskHandle;
 extern TaskHandle_t xSettingTaskHandle;
 
 
-static void ExitToMenuTask(void) {
+void ExitToMenuTask(void) {
     menuInterruptEnabled = 1;    // 菜单下移中断使能
     enterInterruptEnabled = 1;   // 确认中断使能
     exitInterruptEnabled = 0;    // 退出中断禁用
@@ -94,10 +95,13 @@ void TimeTask(void *pvParameters) {
         HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);  
         
         OLED_Clear();
+				OLED_ShowString(0,0,"北京时间",OLED_8X16);
         sprintf(dateStr, "20%02d-%02d-%02d", sDate.Year, sDate.Month, sDate.Date);
         sprintf(timeStr, "%02d:%02d:%02d", sTime.Hours, sTime.Minutes, sTime.Seconds);
-        OLED_ShowString(0, 16, dateStr, OLED_8X16); 
-        OLED_ShowString(0, 32, timeStr, OLED_8X16); 
+        OLED_ShowString(24, 16, dateStr, OLED_8X16); 
+        OLED_ShowString(32, 32, timeStr, OLED_8X16); 
+				OLED_ShowString(0,48,"退出",OLED_8X16);
+				OLED_ShowString(96,48,"设置",OLED_8X16);
         OLED_Update();
         if (xQueueReceive(KeyQueue, &keyEvent, pdMS_TO_TICKS(100)) == pdPASS) {
             if (keyEvent == KEY_EVENT_EXIT) {

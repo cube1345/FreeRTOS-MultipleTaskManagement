@@ -41,6 +41,7 @@ clock\clocktask.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 clock\clocktask.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 clock\clocktask.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 clock\clocktask.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
+clock\clocktask.o: ../Core/Inc/main.h
 clock\clocktask.o: ../OLED/OLED.h
 clock\clocktask.o: ../OLED/OLED_Data.h
-clock\clocktask.o: ..\Task\ClockTask.h
+clock\clocktask.o: ..\Task\TimeTask.h

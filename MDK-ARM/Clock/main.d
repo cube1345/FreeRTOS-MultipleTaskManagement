@@ -42,3 +42,5 @@ clock\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 clock\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 clock\main.o: ../Core/Inc/rtc.h
 clock\main.o: ../Core/Inc/gpio.h
+clock\main.o: ../OLED/OLED.h
+clock\main.o: ../OLED/OLED_Data.h

@@ -111,7 +111,7 @@ void MX_FREERTOS_Init(void) {
 	xTaskCreate(TimeTask,"TimeTask",128,NULL,osPriorityNormal,&xClockTaskHandle);
 	vTaskSuspend(xClockTaskHandle); 
 	xTaskCreate(ClockTask,"ClockTask",128,NULL,osPriorityAboveNormal,&xAlarmTaskHandle);
-//	vTaskSuspend(xAlarmTaskHandle);
+	vTaskSuspend(xAlarmTaskHandle);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */

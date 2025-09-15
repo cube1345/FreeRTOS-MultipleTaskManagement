@@ -47,8 +47,8 @@
 
 extern QueueHandle_t KeyQueue;
 extern uint8_t g_isInMenuTask;
-volatile uint8_t menuInterruptEnabled = 0;    // �˵������ж�ʹ��
-volatile uint8_t enterInterruptEnabled = 0;   // ȷ��/�˳��ж�ʹ�ܣ�ͳһ����PB12/PB13��
+volatile uint8_t menuInterruptEnabled = 0; 
+volatile uint8_t enterInterruptEnabled = 0;
 volatile uint8_t exitInterruptEnabled = 0;
 
 /* USER CODE END PV */
@@ -235,8 +235,8 @@ void TIM4_IRQHandler(void)
 void EXTI15_10_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
-  static uint32_t LastPressTime = 0;  // �ϴΰ���ʱ�䣨����������
-  uint32_t CurrentTime = HAL_GetTick();  // ��ǰʱ��
+  static uint32_t LastPressTime = 0;
+  uint32_t CurrentTime = HAL_GetTick();
   BaseType_t xHigherPriorityTaskWoken = pdFALSE;
   KeyEventType Key_Event;
   if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET) {
@@ -245,7 +245,7 @@ void EXTI15_10_IRQHandler(void)
       if (KeyQueue != NULL) {
         xQueueSendFromISR(KeyQueue, &Key_Event, &xHigherPriorityTaskWoken);
       }
-      LastPressTime = CurrentTime;  // �����ϴΰ���ʱ��
+      LastPressTime = CurrentTime;
     }
   }
   else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13) == GPIO_PIN_RESET) {

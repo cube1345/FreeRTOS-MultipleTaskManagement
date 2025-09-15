@@ -41,15 +41,16 @@
  *            佛祖保佑     永不宕机     永无BUG
  */
  
- #include "stm32f1xx_hal.h"
+#include "stm32f1xx_hal.h"
 #include "cmsis_os.h"
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
 #include "semphr.h"
-
+#include "main.h"
 #include "OLED.h"  
-#include "ClockTask.h" 
+#include "TimeTask.h"
+
 
 extern TaskHandle_t xMenuTaskHandle;
 extern TaskHandle_t xClockTaskHandle;
@@ -67,9 +68,26 @@ extern volatile uint8_t g_isInMenuTask;
 extern TaskHandle_t xMenuTaskHandle;
 extern uint8_t selectedIndex;
 
+
 void ClockTask(void *pvParameters)
 {
+	
+	KeyEventType keyEvent; 
+	menuInterruptEnabled = 0;
+	enterInterruptEnabled = 0;
+	exitInterruptEnabled = 1;
+	g_isInMenuTask = 0;
+	
 	OLED_Clear();
 	OLED_ShowString(0,0,"ClockTest",OLED_8X16);
 	OLED_Update();
+	
+	
+	for(;;)
+	{
+		if (xQueueReceive(KeyQueue, &keyEvent, pdMS_TO_TICKS(100)) == pdPASS)  if (keyEvent == KEY_EVENT_EXIT) ExitToMenuTask();
+		vTaskDelay(pdMS_TO_TICKS(1000));
+	}
+	
 }
+

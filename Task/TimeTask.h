@@ -2,8 +2,7 @@
 #define __TIMETASK_H
 
 
-
-
+void ExitToMenuTask(void);
 
 
 #endif
