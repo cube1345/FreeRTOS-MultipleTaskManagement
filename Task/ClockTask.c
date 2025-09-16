@@ -1,46 +1,3 @@
-/**********************************************************************************
- * 文件名称：
- * 文件说明：
- * 操作外设：
- * 移植须知：
- * 接线须知：
--------------
--------------
--------------
--------------
--------------
- * 其   他：
- * 作   者：Cube
- * 更新日期：
- * 更新事项：
- * GitHub：https://github.com/cube1345
- ***********************************************************************************/
-/*
- *                        _oo0oo_
- *                       o8888888o
- *                       88" . "88
- *                       (  -_-  )
- *                       0\  =  /0
- *                     ___/`---'\___
- *                   .' \\     |// '.
- *                  / \\|||  :  |||// \
- *                 / _||||| -:- |||||- \
- *                |   | \\\  - /// |   |
- *                | \_|  ''\---/''  |_/ |
- *                \  .-\__  '-'  ___/-. /
- *              ___'. .'  /--.--\  `. .'___
- *           ."" '<  `.___\_<|>_/___.' >' "".
- *          | | :  `- \`.;`\ _ /`;.`/ - ` : | |
- *          \  \ `_.   \_ __\ /__ _/   .-` /  /
- *      =====`-.____`.___ \_____/___.-`___.-'=====
- *                        `=---='
- * 
- * 
- *      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * 
- *            佛祖保佑     永不宕机     永无BUG
- */
- 
 #include "stm32f1xx_hal.h"
 #include "cmsis_os.h"
 #include "FreeRTOS.h"
@@ -50,7 +7,9 @@
 #include "main.h"
 #include "OLED.h"  
 #include "TimeTask.h"
+#include "OLED_UI.h"
 
+// 外部任务句柄
 extern TaskHandle_t xMenuTaskHandle;
 extern TaskHandle_t xClockTaskHandle;
 extern TaskHandle_t xAlarmTaskHandle;
@@ -59,30 +18,67 @@ extern TaskHandle_t xTempTaskHandle;
 extern TaskHandle_t xGyroTaskHandle;
 extern TaskHandle_t xSettingTaskHandle;
 
+// 外部队列和全局变量
 extern QueueHandle_t KeyQueue;
 extern volatile uint8_t menuInterruptEnabled;
 extern volatile uint8_t enterInterruptEnabled;
 extern volatile uint8_t exitInterruptEnabled;
 extern volatile uint8_t g_isInMenuTask;
 extern TaskHandle_t xMenuTaskHandle;
-extern uint8_t selectedIndex;
 
-void ClockTask(void *pvParameters)
-{
-	KeyEventType keyEvent; 
-	menuInterruptEnabled = 0;
-	enterInterruptEnabled = 0;
-	exitInterruptEnabled = 1;
-	g_isInMenuTask = 0;
-	
-	for(;;)
-	{
-		OLED_Clear();
-		OLED_ShowString(0,0,"Alarm List",OLED_8X16);
-		OLED_Update();
-		if (xQueueReceive(KeyQueue, &keyEvent, pdMS_TO_TICKS(100)) == pdPASS)  if (keyEvent == KEY_EVENT_EXIT) ExitToMenuTask();
-		vTaskDelay(pdMS_TO_TICKS(1000));
-	}
-	
+/**
+ * 退出到菜单任务
+ */
+static void ExitToMenuTask(void) {
+    g_isInMenuTask = 1;
+    menuInterruptEnabled = 1;
+    enterInterruptEnabled = 1;
+    exitInterruptEnabled = 0;
+    vTaskResume(xMenuTaskHandle);
+    vTaskSuspend(xClockTaskHandle);
 }
 
+/**
+ * 计算当前页码，确保选中项在可见页
+ */
+static void UpdateCurrentPage(void) {
+    g_CurrentPage = g_SelectedIndex / ALARM_PER_PAGE;
+}
+
+/**
+ * 闹钟列表任务（FreeRTOS任务）
+ */
+void ClockTask(void *pvParameters) {
+    KeyEventType keyEvent; 
+    menuInterruptEnabled = 1;
+    enterInterruptEnabled = 0;
+    exitInterruptEnabled = 1;
+    g_isInMenuTask = 0;
+    
+    // 初始化选中状态（使用全局变量g_SelectedIndex）
+    g_SelectedIndex = 0;
+    g_CurrentPage = 0;
+    OLED_ShowAlarmPage();  // 使用统一的UI显示函数
+    
+    for(;;) {
+        if (xQueueReceive(KeyQueue, &keyEvent, pdMS_TO_TICKS(100)) == pdPASS) {
+            switch (keyEvent) {
+                case KEY_EVENT_EXIT:
+                    ExitToMenuTask();
+                    break;
+                    
+                case KEY_EVENT_DOWN:  // 下移选中项
+                    if (g_SelectedIndex < GetAlarmCount() - 1) {
+                        g_SelectedIndex++;
+                        UpdateCurrentPage();  // 更新页码
+                        OLED_ShowAlarmPage();  // 刷新显示（反相逻辑在UI中实现）
+                    }
+                    break;
+              
+                default:
+                    break;
+            }
+        }
+        vTaskDelay(pdMS_TO_TICKS(50));
+    }
+}

@@ -21,21 +21,27 @@ Target DLL:      CMSIS_AGDI.dll V1.33.22.0
 Dialog DLL:      TCM.DLL V1.56.6.0
  
 <h2>Project:</h2>
-I:\programming\ST\FreeRTOS\watch-F103\MyProject\Clock\MDK-ARM\Clock.uvprojx
-Project File Date:  09/15/2025
+H:\programming\ST\FreeRTOS\watch-F103\MyProject\Clock\MDK-ARM\Clock.uvprojx
+Project File Date:  09/16/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'E:\STM32\ARM\ARMCC\Bin'
 Build target 'Clock'
 Note: source file '..\Driver\RTC.c' - object file renamed from 'Clock\RTC.o' to 'Clock\rtc_1.o'.
+compiling OLED_UI.c...
+..\Driver\OLED_UI.c(14): warning:  #47-D: incompatible redefinition of macro "TITLE_X"  (declared at line 22 of "..\Driver\OLED_UI.h")
+  #define TITLE_X         5
+..\Driver\OLED_UI.c(15): warning:  #47-D: incompatible redefinition of macro "TITLE_Y"  (declared at line 23 of "..\Driver\OLED_UI.h")
+  #define TITLE_Y         5
+..\Driver\OLED_UI.c: 2 warnings, 0 errors
 compiling ClockTask.c...
 ..\Task\TimeTask.h(8): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\Task\ClockTask.c: 1 warning, 0 errors
 linking...
-Program Size: Code=16216 RO-data=3196 RW-data=220 ZI-data=9108  
+Program Size: Code=16972 RO-data=3196 RW-data=284 ZI-data=9108  
 FromELF: creating hex file...
-"Clock\Clock.axf" - 0 Error(s), 1 Warning(s).
+"Clock\Clock.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 

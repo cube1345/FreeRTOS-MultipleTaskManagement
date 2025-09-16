@@ -817,6 +817,16 @@
               <FileType>5</FileType>
               <FilePath>..\Driver\RTC.h</FilePath>
             </File>
+            <File>
+              <FileName>OLED_UI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\OLED_UI.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_UI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Driver\OLED_UI.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

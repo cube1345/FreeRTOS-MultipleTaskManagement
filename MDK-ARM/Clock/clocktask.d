@@ -45,3 +45,5 @@ clock\clocktask.o: ../Core/Inc/main.h
 clock\clocktask.o: ../OLED/OLED.h
 clock\clocktask.o: ../OLED/OLED_Data.h
 clock\clocktask.o: ..\Task\TimeTask.h
+clock\clocktask.o: ../Driver/OLED_UI.h
+clock\clocktask.o: ../Core/Inc/gpio.h
