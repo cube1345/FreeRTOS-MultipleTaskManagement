@@ -41,6 +41,7 @@
 "clock\key.o"
 "clock\rtc_1.o"
 "clock\oled_ui.o"
+"clock\encoder.o"
 --strict --scatter "Clock\Clock.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

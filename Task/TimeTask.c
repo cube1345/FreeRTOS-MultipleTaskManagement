@@ -86,11 +86,13 @@ void TimeTask(void *pvParameters) {
     RTC_TimeTypeDef sTime;
     char timeStr[9], dateStr[11];
     KeyEventType keyEvent; 
-    menuInterruptEnabled = 0;
-    enterInterruptEnabled = 0;
-    exitInterruptEnabled = 1;
-    g_isInMenuTask = 0;
+
     for (;;) {
+				menuInterruptEnabled = 0;
+				enterInterruptEnabled = 0;
+				exitInterruptEnabled = 1;
+				g_isInMenuTask = 0;
+			
         HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN); 
         HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);  
         

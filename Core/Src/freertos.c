@@ -108,10 +108,10 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
 	xTaskCreate(MenuTask,"MenuTask",128,NULL,osPriorityNormal,&xMenuTaskHandle);
-	xTaskCreate(TimeTask,"TimeTask",128,NULL,osPriorityNormal,&xClockTaskHandle);
-	vTaskSuspend(xClockTaskHandle); 
-	xTaskCreate(ClockTask,"ClockTask",128,NULL,osPriorityAboveNormal,&xAlarmTaskHandle);
-	vTaskSuspend(xAlarmTaskHandle);
+//	xTaskCreate(TimeTask,"TimeTask",128,NULL,osPriorityNormal,&xClockTaskHandle);
+//	vTaskSuspend(xClockTaskHandle); 
+//	xTaskCreate(ClockTask,"ClockTask",128,NULL,osPriorityAboveNormal,&xAlarmTaskHandle);
+//	vTaskSuspend(xAlarmTaskHandle);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */

@@ -26,18 +26,7 @@ extern volatile uint8_t exitInterruptEnabled;
 extern volatile uint8_t g_isInMenuTask;
 extern TaskHandle_t xMenuTaskHandle;
 
-/**
- * 退出到菜单任务
- */
-static void ExitToMenuTask(void) {
-    g_isInMenuTask = 1;
-    menuInterruptEnabled = 1;
-    enterInterruptEnabled = 1;
-    exitInterruptEnabled = 0;
-    vTaskResume(xMenuTaskHandle);
-    vTaskSuspend(xClockTaskHandle);
-}
-
+static int TestNum;
 /**
  * 计算当前页码，确保选中项在可见页
  */
@@ -50,15 +39,21 @@ static void UpdateCurrentPage(void) {
  */
 void ClockTask(void *pvParameters) {
     KeyEventType keyEvent; 
-    menuInterruptEnabled = 1;
-    enterInterruptEnabled = 0;
-    exitInterruptEnabled = 1;
-    g_isInMenuTask = 0;
-    g_SelectedIndex = 0;
-    g_CurrentPage = 0;
-    OLED_ShowAlarmPage();
-    
+		g_SelectedIndex = 0;
+		g_CurrentPage = 0;
+//		TestNum++; 
+	
     for(;;) {
+			
+				menuInterruptEnabled = 1;
+				enterInterruptEnabled = 0;
+				exitInterruptEnabled = 1;
+				g_isInMenuTask = 0;
+
+			
+				OLED_Clear();
+				OLED_ShowAlarmPage();
+			
         if (xQueueReceive(KeyQueue, &keyEvent, pdMS_TO_TICKS(100)) == pdPASS) {
             switch (keyEvent) {
                 case KEY_EVENT_EXIT:
@@ -70,10 +65,9 @@ void ClockTask(void *pvParameters) {
                     } else {
                         g_SelectedIndex = 0;
                     }
-                    UpdateCurrentPage();  // 更新页码
-                    OLED_ShowAlarmPage(); // 刷新显示
+                    UpdateCurrentPage();
+                    OLED_ShowAlarmPage();
                     break;
-              
                 default:
                     break;
             }

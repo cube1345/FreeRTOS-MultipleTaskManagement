@@ -28,17 +28,18 @@ Project File Date:  09/16/2025
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'E:\STM32\ARM\ARMCC\Bin'
 Build target 'Clock'
 Note: source file '..\Driver\RTC.c' - object file renamed from 'Clock\RTC.o' to 'Clock\rtc_1.o'.
-compiling OLED_UI.c...
-compiling ClockTask.c...
-..\Task\TimeTask.h(8): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\Task\ClockTask.c(87): warning:  #1-D: last line of file ends without a newline
-      
-..\Task\ClockTask.c: 2 warnings, 0 errors
+compiling MenuTask.c...
+..\Task\MenuTask.h(20): warning:  #1-D: last line of file ends without a newline
+  #endif // MENU_TASK_H
+..\Task\MenuTask.c(212): warning:  #1-D: last line of file ends without a newline
+  }
+..\Task\MenuTask.c(83): warning:  #177-D: variable "g_menuNames"  was declared but never referenced
+  static char* g_menuNames[MENU_COUNT] = {
+..\Task\MenuTask.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=16976 RO-data=3196 RW-data=284 ZI-data=9108  
+Program Size: Code=13984 RO-data=3132 RW-data=176 ZI-data=9136  
 FromELF: creating hex file...
-"Clock\Clock.axf" - 0 Error(s), 2 Warning(s).
+"Clock\Clock.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 

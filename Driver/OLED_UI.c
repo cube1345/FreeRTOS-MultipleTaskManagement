@@ -46,9 +46,6 @@ void OLED_DrawWeekBlock(uint16_t x, uint16_t y, uint8_t isEnable, uint8_t invert
     } else {
         OLED_DrawRectangle(x, y, BLOCK_SIZE, BLOCK_SIZE, OLED_UNFILLED);
     }
-    if (invert) {
-        OLED_ReverseArea(x, y, BLOCK_SIZE, BLOCK_SIZE);
-    }
 }
 
 // 获取闹钟总数

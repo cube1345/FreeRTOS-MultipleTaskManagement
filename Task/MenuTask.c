@@ -1,6 +1,6 @@
 /**********************************************************************************
- * 文件名称：
- * 文件说明：
+ * 文件名称：菜单任务函数
+ * 文件说明：本文件存放菜单任务，菜单进入各项小任务的状态管理
  * 操作外设：
  * 移植须知：
  * 接线须知：
@@ -40,6 +40,7 @@
  * 
  *            佛祖保佑     永不宕机     永无BUG
  */
+ // 
 #include "stm32f1xx_hal.h"
 #include "cmsis_os.h"
 #include "FreeRTOS.h"
@@ -51,6 +52,9 @@
 #include "MenuTask.h"
 #include "Assests.h"  // 包含枚举（MenuItemType/KeyEventType）
 #include "OLED.h"  
+#include "Encoder.h"
+
+Encoder_HandleTypeDef encoder;
 
 typedef enum {
     MENU_CLOCK,        // 时钟
@@ -80,22 +84,64 @@ static char* g_menuNames[MENU_COUNT] = {
     "Clock", "Alarm", "Game", "Temp", "Gyro", "Setting"
 };
 
+static int TestNum;
+
+int32_t EncoderCount = 0;
+
+//static void ShowCurrentMenu(uint8_t selectedIndex, uint8_t displayOffset) {
+//    OLED_Clear(); 
+//		EncoderCount = Encoder_GetCount();
+//    OLED_ShowString(0, 0, "Menu", OLED_8X16);
+//    for (uint8_t i = 0; i < 3; i++) {
+//        uint8_t menuIdx = displayOffset + i;
+//        if (menuIdx >= MENU_COUNT) break;   
+//        if (menuIdx == selectedIndex) {
+//            OLED_ShowString(0, 16 + i*16, ">", OLED_8X16);
+//            OLED_ShowString(16, 16 + i*16, g_menuNames[menuIdx], OLED_8X16);
+//        } else {
+//            OLED_ShowString(0, 16 + i*16, " ", OLED_8X16);
+//            OLED_ShowString(16, 16 + i*16, g_menuNames[menuIdx], OLED_8X16);
+//        }
+//    }
+//    OLED_Update();
+//}
 
 static void ShowCurrentMenu(uint8_t selectedIndex, uint8_t displayOffset) {
+		int32_t last_count = 0;
+    Encoder_DirTypeDef last_dir = ENCODER_DIR_NONE;
     OLED_Clear(); 
-    OLED_ShowString(0, 0, "Menu", OLED_8X16);
-    for (uint8_t i = 0; i < 3; i++) {
-        uint8_t menuIdx = displayOffset + i;
-        if (menuIdx >= MENU_COUNT) break;   
-        if (menuIdx == selectedIndex) {
-            OLED_ShowString(0, 16 + i*16, ">", OLED_8X16);
-            OLED_ShowString(16, 16 + i*16, g_menuNames[menuIdx], OLED_8X16);
-        } else {
-            OLED_ShowString(0, 16 + i*16, " ", OLED_8X16);
-            OLED_ShowString(16, 16 + i*16, g_menuNames[menuIdx], OLED_8X16);
+    while (1) {
+        // 更新编码器状态
+        Encoder_Update(&encoder);
+        
+        // 获取当前计数和方向
+        int32_t current_count = Encoder_GetCount(&encoder);
+        Encoder_DirTypeDef current_dir = Encoder_GetDir(&encoder);
+        
+        // 检测到状态变化时处理
+        if (current_count != last_count || current_dir != last_dir) {
+            // 打印信息或执行其他操作
+            if (current_dir == ENCODER_DIR_CW) {
+                // 顺时针旋转
+            } else if (current_dir == ENCODER_DIR_CCW) {
+                // 逆时针旋转
+            }
+            
+            // 更新上一次状态
+            last_count = current_count;
+            last_dir = current_dir;
         }
+        
+        TestNum++;
+				// 延时一小段时间，避免频繁检测
+        HAL_Delay(1);
+				OLED_ShowString(0, 0, "Menu", OLED_8X16);
+				OLED_ShowNum(0,16,current_count,5,OLED_8X16); 
+				OLED_ShowNum(0,32,TestNum,5,OLED_8X16);
+				OLED_Update();
     }
-    OLED_Update();
+
+
 }
 
 static uint8_t CalcDisplayOffset(uint8_t selectedIndex) {
@@ -116,7 +162,7 @@ static void EnterTargetTask(uint8_t selectedIndex) {
         case MENU_CLOCK: vTaskResume(xClockTaskHandle); break;
         case MENU_ALARM: 
 					menuInterruptEnabled = 1;
-					vTaskResume(xAlarmTaskHandle); 
+					vTaskResume(xAlarmTaskHandle);
 					break;
         case MENU_GAME: vTaskResume(xGameTaskHandle); break;
         case MENU_TEMP: vTaskResume(xTempTaskHandle); break;
@@ -126,10 +172,10 @@ static void EnterTargetTask(uint8_t selectedIndex) {
     }
     vTaskSuspend(NULL);
 
-    g_isInMenuTask = 1;        
-    menuInterruptEnabled = 1;   
-    enterInterruptEnabled = 1;  
-    exitInterruptEnabled = 0;   
+//    g_isInMenuTask = 0;        
+//    menuInterruptEnabled = 1;   
+//    enterInterruptEnabled = 1;  
+//    exitInterruptEnabled = 0;   
     ShowCurrentMenu(selectedIndex, CalcDisplayOffset(selectedIndex));
 }
 
