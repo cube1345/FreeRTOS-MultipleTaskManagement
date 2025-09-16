@@ -54,11 +54,9 @@ void ClockTask(void *pvParameters) {
     enterInterruptEnabled = 0;
     exitInterruptEnabled = 1;
     g_isInMenuTask = 0;
-    
-    // 初始化选中状态（使用全局变量g_SelectedIndex）
     g_SelectedIndex = 0;
     g_CurrentPage = 0;
-    OLED_ShowAlarmPage();  // 使用统一的UI显示函数
+    OLED_ShowAlarmPage();
     
     for(;;) {
         if (xQueueReceive(KeyQueue, &keyEvent, pdMS_TO_TICKS(100)) == pdPASS) {
@@ -66,13 +64,14 @@ void ClockTask(void *pvParameters) {
                 case KEY_EVENT_EXIT:
                     ExitToMenuTask();
                     break;
-                    
-                case KEY_EVENT_DOWN:  // 下移选中项
+                case KEY_EVENT_DOWN:
                     if (g_SelectedIndex < GetAlarmCount() - 1) {
                         g_SelectedIndex++;
-                        UpdateCurrentPage();  // 更新页码
-                        OLED_ShowAlarmPage();  // 刷新显示（反相逻辑在UI中实现）
+                    } else {
+                        g_SelectedIndex = 0;
                     }
+                    UpdateCurrentPage();  // 更新页码
+                    OLED_ShowAlarmPage(); // 刷新显示
                     break;
               
                 default:
@@ -82,3 +81,4 @@ void ClockTask(void *pvParameters) {
         vTaskDelay(pdMS_TO_TICKS(50));
     }
 }
+    

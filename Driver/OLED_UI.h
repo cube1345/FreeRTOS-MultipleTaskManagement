@@ -12,26 +12,13 @@ typedef struct {
     uint8_t repeat[7];
 } AlarmTypeDef;
 
-// 显示宏定义
-#define FONT_SIZE       OLED_8X16
-#define ALARM_ROW_HEIGHT 18
-#define BLOCK_SIZE      4
-#define BLOCK_SPACING   3
-
-#define TITLE_STR       "Alarm List"
-#define TITLE_X         0
-#define TITLE_Y         0
-#define TIME_START_X    5
-#define BLOCK_START_X   95
-#define PAGE_TIP_X      90
-#define PAGE_TIP_Y      5
 
 #define KEY_DELAY       20
 #define ALARM_PER_PAGE  3
 
 // 全局变量声明
 extern AlarmTypeDef g_AlarmList[];
-extern uint8_t g_CurrentPage;  
+extern uint8_t g_CurrentPage;
 extern uint8_t g_SelectedIndex; 
 
 // 函数声明

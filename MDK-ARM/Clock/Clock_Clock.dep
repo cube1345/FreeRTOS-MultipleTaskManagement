@@ -927,7 +927,7 @@ F (..\OLED\OLED_Data.c)(0x68C7AC92)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=inter
 I (..\OLED\OLED_Data.h)(0x6714EE44)
 I (E:\STM32\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
 F (..\OLED\OLED_Data.h)(0x6714EE44)()
-F (..\Task\MenuTask.c)(0x68C7A84A)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../OLED -I ../Driver-I.\RTE\_Clock-IE:\STM32\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\STM32\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o clock\menutask.o --omf_browse clock\menutask.crf --depend clock\menutask.d)
+F (..\Task\MenuTask.c)(0x68C94A1E)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../OLED -I ../Driver-I.\RTE\_Clock-IE:\STM32\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\STM32\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o clock\menutask.o --omf_browse clock\menutask.crf --depend clock\menutask.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x680A26A2)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x68C4DFF0)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x680A26A2)
@@ -975,7 +975,7 @@ I (..\Task\Assests.h)(0x68C509D8)
 I (../OLED/OLED.h)(0x6714EDC0)
 I (../OLED/OLED_Data.h)(0x6714EE44)
 F (..\Task\MenuTask.h)(0x68C50CD6)()
-F (..\Task\TimeTask.c)(0x68C7A9C4)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../OLED -I ../Driver-I.\RTE\_Clock-IE:\STM32\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\STM32\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o clock\timetask.o --omf_browse clock\timetask.crf --depend clock\timetask.d)
+F (..\Task\TimeTask.c)(0x68C94A1E)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../OLED -I ../Driver-I.\RTE\_Clock-IE:\STM32\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\STM32\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o clock\timetask.o --omf_browse clock\timetask.crf --depend clock\timetask.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x680A26A2)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x68C4DFF0)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x680A26A2)
@@ -1026,7 +1026,7 @@ I (..\Task\MenuTask.h)(0x68C50CD6)
 I (..\Task\TimeTask.h)(0x68C7A4C2)
 F (..\Task\TimeTask.h)(0x68C7A4C2)()
 F (..\Task\Assests.h)(0x68C509D8)()
-F (..\Task\ClockTask.c)(0x68C8DCFA)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../OLED -I ../Driver-I.\RTE\_Clock-IE:\STM32\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\STM32\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o clock\clocktask.o --omf_browse clock\clocktask.crf --depend clock\clocktask.d)
+F (..\Task\ClockTask.c)(0x68C9505A)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../OLED -I ../Driver-I.\RTE\_Clock-IE:\STM32\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\STM32\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o clock\clocktask.o --omf_browse clock\clocktask.crf --depend clock\clocktask.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x680A26A2)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x68C4DFF0)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x680A26A2)
@@ -1072,7 +1072,7 @@ I (../Core/Inc/main.h)(0x68C7A7CE)
 I (../OLED/OLED.h)(0x6714EDC0)
 I (../OLED/OLED_Data.h)(0x6714EE44)
 I (..\Task\TimeTask.h)(0x68C7A4C2)
-I (../Driver/OLED_UI.h)(0x68C8E1C2)
+I (../Driver/OLED_UI.h)(0x68C9502A)
 I (../Core/Inc/gpio.h)(0x68AC079A)
 F (..\Task\ClockTask.h)(0x68C797FE)()
 F (..\Driver\Key.c)(0x68C50C62)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../OLED -I ../Driver-I.\RTE\_Clock-IE:\STM32\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\STM32\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o clock\key.o --omf_browse clock\key.crf --depend clock\key.d)
@@ -1124,7 +1124,7 @@ I (../Core/Inc/stm32f1xx_it.h)(0x68C512D8)
 F (..\Driver\Key.h)(0x68C4C750)()
 F (..\Driver\RTC.c)(0x68C4E112)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../OLED -I ../Driver-I.\RTE\_Clock-IE:\STM32\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\STM32\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o clock\rtc_1.o --omf_browse clock\rtc_1.crf --depend clock\rtc_1.d)
 F (..\Driver\RTC.h)(0x68C4DE3D)()
-F (..\Driver\OLED_UI.c)(0x68C8DDC0)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../OLED -I ../Driver-I.\RTE\_Clock-IE:\STM32\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\STM32\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o clock\oled_ui.o --omf_browse clock\oled_ui.crf --depend clock\oled_ui.d)
+F (..\Driver\OLED_UI.c)(0x68C9505C)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../OLED -I ../Driver-I.\RTE\_Clock-IE:\STM32\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\STM32\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o clock\oled_ui.o --omf_browse clock\oled_ui.crf --depend clock\oled_ui.d)
 I (../OLED/OLED.h)(0x6714EDC0)
 I (E:\STM32\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
 I (../OLED/OLED_Data.h)(0x6714EE44)
@@ -1159,5 +1159,5 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x680A26A2)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x680A26A2)
 I (E:\STM32\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (E:\STM32\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
-I (..\Driver\OLED_UI.h)(0x68C8E1C2)
-F (..\Driver\OLED_UI.h)(0x68C8E1C2)()
+I (..\Driver\OLED_UI.h)(0x68C9502A)
+F (..\Driver\OLED_UI.h)(0x68C9502A)()

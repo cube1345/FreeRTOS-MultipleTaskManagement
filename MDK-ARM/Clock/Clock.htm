@@ -3,7 +3,7 @@
 <title>Static Call Graph - [Clock\Clock.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image Clock\Clock.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Sep 16 12:04:17 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Sep 16 19:56:11 2025
 <BR><P>
 <H3>Maximum Stack Usage =        240 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -559,7 +559,7 @@ Global Symbols
 </UL>
 <P><STRONG><a name="[13b]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, indicate_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[40]"></a>ClockTask</STRONG> (Thumb, 152 bytes, Stack size 8 bytes, clocktask.o(i.ClockTask))
+<P><STRONG><a name="[40]"></a>ClockTask</STRONG> (Thumb, 154 bytes, Stack size 8 bytes, clocktask.o(i.ClockTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176 + Unknown Stack Size
 <LI>Call Chain = ClockTask &rArr; OLED_ShowAlarmPage &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -1133,7 +1133,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowSingleAlarm
 </UL>
 
-<P><STRONG><a name="[c1]"></a>OLED_ShowSingleAlarm</STRONG> (Thumb, 148 bytes, Stack size 32 bytes, oled_ui.o(i.OLED_ShowSingleAlarm))
+<P><STRONG><a name="[c1]"></a>OLED_ShowSingleAlarm</STRONG> (Thumb, 144 bytes, Stack size 32 bytes, oled_ui.o(i.OLED_ShowSingleAlarm))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = OLED_ShowSingleAlarm &rArr; OLED_ShowNum &rArr; OLED_ShowChar &rArr; OLED_ShowImage &rArr; OLED_ClearArea
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowNum
@@ -1265,11 +1265,11 @@ Global Symbols
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_GetTime
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_GetDate
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ExitToMenuTask
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Update
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ExitToMenuTask
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> freertos.o(i.MX_FREERTOS_Init)
 </UL>
@@ -1526,8 +1526,8 @@ Global Symbols
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvTaskIsTaskSuspended
 </UL>
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClockTask
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ExitToMenuTask
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnterTargetTask
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ExitToMenuTask
 </UL>
 
 <P><STRONG><a name="[d0]"></a>vTaskStartScheduler</STRONG> (Thumb, 118 bytes, Stack size 40 bytes, tasks.o(i.vTaskStartScheduler))
@@ -1554,8 +1554,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClockTask
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FREERTOS_Init
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ExitToMenuTask
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnterTargetTask
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ExitToMenuTask
 </UL>
 
 <P><STRONG><a name="[ee]"></a>vTaskSuspendAll</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, tasks.o(i.vTaskSuspendAll))
@@ -2085,7 +2085,7 @@ Local Symbols
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnterTargetTask
 </UL>
 
-<P><STRONG><a name="[72]"></a>EnterTargetTask</STRONG> (Thumb, 112 bytes, Stack size 32 bytes, menutask.o(i.EnterTargetTask))
+<P><STRONG><a name="[72]"></a>EnterTargetTask</STRONG> (Thumb, 114 bytes, Stack size 32 bytes, menutask.o(i.EnterTargetTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = EnterTargetTask &rArr; ShowCurrentMenu &rArr; OLED_ShowString &rArr; OLED_ShowChar &rArr; OLED_ShowImage &rArr; OLED_ClearArea
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspend

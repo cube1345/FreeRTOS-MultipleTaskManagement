@@ -114,7 +114,10 @@ static void EnterTargetTask(uint8_t selectedIndex) {
 
     switch (selectedIndex) {
         case MENU_CLOCK: vTaskResume(xClockTaskHandle); break;
-        case MENU_ALARM: vTaskResume(xAlarmTaskHandle); break;
+        case MENU_ALARM: 
+					menuInterruptEnabled = 1;
+					vTaskResume(xAlarmTaskHandle); 
+					break;
         case MENU_GAME: vTaskResume(xGameTaskHandle); break;
         case MENU_TEMP: vTaskResume(xTempTaskHandle); break;
         case MENU_GYRO: vTaskResume(xGyroTaskHandle); break;
