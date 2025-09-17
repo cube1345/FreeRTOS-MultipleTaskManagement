@@ -20,11 +20,13 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "rtc.h"
+#include "tim.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "OLED.h"
+#include "Encoder.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,6 +48,7 @@
 
 /* USER CODE BEGIN PV */
 static int TestNum = 0;
+extern Encoder_HandleTypeDef encoder;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -90,8 +93,13 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_RTC_Init();
+  MX_TIM2_Init();
+
   /* USER CODE BEGIN 2 */
 	OLED_Init();
+  Encoder_Init(&encoder, GPIOA, GPIO_PIN_11,  // A相
+                     GPIOA, GPIO_PIN_15,  // B相
+                     GPIOA, GPIO_PIN_12); // 按键
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -176,7 +184,11 @@ void SystemClock_Config(void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   /* USER CODE BEGIN Callback 0 */
-
+  if (htim->Instance == TIM2) {
+    // 在定时器中断中更新编码器状态
+    Encoder_Update(&encoder);
+		TestNum++;
+  }
   /* USER CODE END Callback 0 */
   if (htim->Instance == TIM4)
   {

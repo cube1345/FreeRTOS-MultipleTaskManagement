@@ -53,6 +53,7 @@
 #include "Assests.h"  // 包含枚举（MenuItemType/KeyEventType）
 #include "OLED.h"  
 #include "Encoder.h"
+#include "tim.h"
 
 Encoder_HandleTypeDef encoder;
 
@@ -88,61 +89,25 @@ static int TestNum;
 
 int32_t EncoderCount = 0;
 
-//static void ShowCurrentMenu(uint8_t selectedIndex, uint8_t displayOffset) {
-//    OLED_Clear(); 
-//		EncoderCount = Encoder_GetCount();
-//    OLED_ShowString(0, 0, "Menu", OLED_8X16);
-//    for (uint8_t i = 0; i < 3; i++) {
-//        uint8_t menuIdx = displayOffset + i;
-//        if (menuIdx >= MENU_COUNT) break;   
-//        if (menuIdx == selectedIndex) {
-//            OLED_ShowString(0, 16 + i*16, ">", OLED_8X16);
-//            OLED_ShowString(16, 16 + i*16, g_menuNames[menuIdx], OLED_8X16);
-//        } else {
-//            OLED_ShowString(0, 16 + i*16, " ", OLED_8X16);
-//            OLED_ShowString(16, 16 + i*16, g_menuNames[menuIdx], OLED_8X16);
-//        }
-//    }
-//    OLED_Update();
-//}
-
 static void ShowCurrentMenu(uint8_t selectedIndex, uint8_t displayOffset) {
-		int32_t last_count = 0;
-    Encoder_DirTypeDef last_dir = ENCODER_DIR_NONE;
     OLED_Clear(); 
-    while (1) {
-        // 更新编码器状态
-        Encoder_Update(&encoder);
-        
-        // 获取当前计数和方向
-        int32_t current_count = Encoder_GetCount(&encoder);
-        Encoder_DirTypeDef current_dir = Encoder_GetDir(&encoder);
-        
-        // 检测到状态变化时处理
-        if (current_count != last_count || current_dir != last_dir) {
-            // 打印信息或执行其他操作
-            if (current_dir == ENCODER_DIR_CW) {
-                // 顺时针旋转
-            } else if (current_dir == ENCODER_DIR_CCW) {
-                // 逆时针旋转
-            }
-            
-            // 更新上一次状态
-            last_count = current_count;
-            last_dir = current_dir;
+    OLED_ShowString(0, 0, "Menu", OLED_8X16);
+	  EncoderCount = Encoder_GetCount(&encoder);
+    for (uint8_t i = 0; i < 3; i++) {
+        uint8_t menuIdx = displayOffset + i;
+        if (menuIdx >= MENU_COUNT) break;   
+        if (menuIdx == selectedIndex) {
+            OLED_ShowString(0, 16 + i*16, ">", OLED_8X16);
+            OLED_ShowString(16, 16 + i*16, g_menuNames[menuIdx], OLED_8X16);
+        } else {
+            OLED_ShowString(0, 16 + i*16, " ", OLED_8X16);
+            OLED_ShowString(16, 16 + i*16, g_menuNames[menuIdx], OLED_8X16);
         }
-        
-        TestNum++;
-				// 延时一小段时间，避免频繁检测
-        HAL_Delay(1);
-				OLED_ShowString(0, 0, "Menu", OLED_8X16);
-				OLED_ShowNum(0,16,current_count,5,OLED_8X16); 
-				OLED_ShowNum(0,32,TestNum,5,OLED_8X16);
-				OLED_Update();
     }
-
-
+    OLED_Update();
 }
+
+
 
 static uint8_t CalcDisplayOffset(uint8_t selectedIndex) {
     uint8_t offset = 0;
@@ -195,6 +160,7 @@ void MenuTask(void *pvParameters)
     g_isInMenuTask = 1;
     ShowCurrentMenu(selectedIndex, displayOffset);
     for (;;) {
+			ShowCurrentMenu(selectedIndex, displayOffset);
         if (xQueueReceive(KeyQueue, &keyEvent, pdMS_TO_TICKS(100)) == pdPASS) {
             switch (keyEvent) {
                 case KEY_EVENT_DOWN:

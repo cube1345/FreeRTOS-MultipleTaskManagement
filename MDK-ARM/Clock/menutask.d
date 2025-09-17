@@ -47,3 +47,4 @@ clock\menutask.o: ..\Task\Assests.h
 clock\menutask.o: ../OLED/OLED.h
 clock\menutask.o: ../OLED/OLED_Data.h
 clock\menutask.o: ../Driver/Encoder.h
+clock\menutask.o: ../Core/Inc/tim.h

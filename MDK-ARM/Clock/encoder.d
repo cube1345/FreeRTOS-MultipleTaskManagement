@@ -29,3 +29,13 @@ clock\encoder.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc.h
 clock\encoder.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc_ex.h
 clock\encoder.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 clock\encoder.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
+clock\encoder.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+clock\encoder.o: ../Core/Inc/FreeRTOSConfig.h
+clock\encoder.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+clock\encoder.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+clock\encoder.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+clock\encoder.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+clock\encoder.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+clock\encoder.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
+clock\encoder.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+clock\encoder.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h

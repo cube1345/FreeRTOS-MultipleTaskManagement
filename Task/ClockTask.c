@@ -44,13 +44,11 @@ void ClockTask(void *pvParameters) {
 //		TestNum++; 
 	
     for(;;) {
-			
 				menuInterruptEnabled = 1;
 				enterInterruptEnabled = 0;
 				exitInterruptEnabled = 1;
 				g_isInMenuTask = 0;
 
-			
 				OLED_Clear();
 				OLED_ShowAlarmPage();
 			
